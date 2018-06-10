@@ -1,12 +1,10 @@
 package modes.exhibitions;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
-
-import static core.DriverFactory.getWebdriver;
 
 public class ShowsRussia extends Page{
     @FindBy(xpath = "//text()[contains(.,'Интернациональная выставка собак')]/following-sibling::*")
@@ -19,10 +17,10 @@ public class ShowsRussia extends Page{
     private WebElement hrefDjude;
 
     @FindBy(xpath = "//*[@id=\"mcont\"]/table[2]/tbody")
-    private List<WebElement> listDjude;
+    private List<WebElement> listDjudge;
 
-    public ShowsRussia() {
-        PageFactory.initElements(getWebdriver(), this);
+    public ShowsRussia(WebDriver drivers) {
+        super(drivers);
     }
 
     public WebElement getDateInfo() {
@@ -39,6 +37,6 @@ public class ShowsRussia extends Page{
     }
 
     public List<WebElement> getListDjude() {
-        return listDjude;
+        return listDjudge;
     }
 }

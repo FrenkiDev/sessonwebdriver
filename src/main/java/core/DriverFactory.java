@@ -21,6 +21,7 @@ public class DriverFactory {
 
     public static void quitWebDriver(){
         webdriver.quit();
+        webdriver = null;
     }
 
     public static WebDriver initiWebDriver(DriverType selectedDriverType){

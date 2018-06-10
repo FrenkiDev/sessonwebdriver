@@ -1,19 +1,19 @@
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.Constants;
 
 import static core.DriverFactory.getWebdriver;
 import static core.DriverFactory.quitWebDriver;
 public class TestBase {
-    private String urlName;
+    private static String urlName = "rush_exhibitions";
 
-    public TestBase(String url) {
+    /*public TestBase(String url) {
         this.urlName = url;
-    }
+    }*/
 
-    @Before
-    public void instantiateDriverObject() {
+    @BeforeClass
+    public static void instantiateDriverObject() {
         String sessionId = ((RemoteWebDriver) getWebdriver()).getSessionId().toString();
         getWebdriver().manage().deleteAllCookies();
         getWebdriver().manage().window().maximize();
@@ -21,8 +21,8 @@ public class TestBase {
 
     }
 
-    @After
-    public void closeDriverObjects() {
+    @AfterClass
+    public static void closeDriverObjects() {
         quitWebDriver();
     }
 }
