@@ -7,13 +7,19 @@ import utils.Constants;
 import static core.DriverFactory.getWebdriver;
 import static core.DriverFactory.quitWebDriver;
 public class TestBase {
+    private String urlName;
     public ShowsRussia showsRussias = new ShowsRussia();
+
+    public TestBase(String url) {
+        this.urlName = url;
+    }
+
     @Before
     public void instantiateDriverObject() {
         String sessionId = ((RemoteWebDriver) getWebdriver()).getSessionId().toString();
         getWebdriver().manage().deleteAllCookies();
         getWebdriver().manage().window().maximize();
-        getWebdriver().get(Constants.getUrl("rush_exhibitions"));
+        getWebdriver().get(Constants.getUrl(urlName));
 
     }
 
