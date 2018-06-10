@@ -1,9 +1,8 @@
 package page;
 
-import controler.ControlerWebPath;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import javax.annotation.Nonnull;
 import java.io.FileInputStream;
@@ -23,13 +22,15 @@ public class RKFPage implements Page {
     private String webPath = "rkf";
     private String menuBar = "menuBar";
 
+    @FindBy ()
+    private WebElement commis;
     @Nonnull
     public RKFPage(WebDriver locWebDriwer) {
         initProperties(propertisPath, listPath  = new Properties());
         initProperties(propertisSelector, listSelector  = new Properties());
 
         locWebDriwer.get(listPath.getProperty(webPath));
-        menu = ControlerWebPath.getListWebElemet(locWebDriwer, By.xpath(listSelector.getProperty(menuBar)));
+       // menu = ControlerWebPath.getListWebElemet(locWebDriwer, By.xpath(listSelector.getProperty(menuBar)));
         System.out.println(menu);
 
     }
