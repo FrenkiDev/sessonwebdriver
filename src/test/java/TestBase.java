@@ -1,4 +1,3 @@
-import modes.exhibitions.ShowsRussia;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -8,7 +7,6 @@ import static core.DriverFactory.getWebdriver;
 import static core.DriverFactory.quitWebDriver;
 public class TestBase {
     private String urlName;
-    public ShowsRussia showsRussias = new ShowsRussia();
 
     public TestBase(String url) {
         this.urlName = url;
